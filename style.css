@@ -1,0 +1,98 @@
+:root{
+  --primary:#0d6efd;
+  --muted:#64748b;
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --accent:#06d6a0;
+  --paper:#f1f5f9;
+  --student-1:#ffd166;
+  --shadow: 0 10px 30px rgba(2,6,23,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  background:var(--bg);color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* layout */
+.app{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:100vh;
+}
+
+/* Sidebar (W3Schools-like) */
+.sidebar{
+  background:linear-gradient(180deg,#ffffff, #f8fafc);
+  border-right:1px solid #e6eef8;padding:18px 14px;position:sticky;top:0;height:100vh;
+}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:18px}
+.logo-badge{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent), #118ab2);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.logo h1{margin:0;font-size:1.05rem}
+.side-nav{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.side-nav a{padding:10px 12px;border-radius:8px;color:#083344;text-decoration:none;font-weight:600}
+.side-nav a:hover{background:linear-gradient(90deg, rgba(13,110,253,0.06), transparent)}
+
+/* top area */
+.topbar{padding:22px 28px;border-bottom:1px solid #eef2ff;background:linear-gradient(90deg, rgba(13,110,253,0.03), transparent)}
+.container{max-width:1100px;margin:0 auto}
+
+/* hero (Wikipedia-like search) */
+.hero{
+  padding:44px 0 24px 0;text-align:center;
+}
+.hero h2{font-size:2.1rem;margin:6px 0}
+.search-large{max-width:720px;margin:18px auto 6px auto;display:flex;gap:10px;align-items:center;justify-content:center}
+.search-input{
+  flex:1;display:flex;align-items:center;background:var(--card);padding:10px 14px;border-radius:999px;box-shadow:var(--shadow);
+}
+.search-input input{border:0;outline:0;font-size:1rem;width:100%}
+.search-btn{background:var(--primary);color:#fff;padding:10px 14px;border-radius:999px;border:0;cursor:pointer}
+
+/* content areas */
+.content{padding:20px 28px}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+
+/* cards */
+.card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease;overflow:hidden}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,6,23,0.09)}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+.card h4{margin:6px 0;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:0.95rem}
+
+/* tags */
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.tag{padding:6px 10px;border-radius:999px;background:var(--paper);font-weight:700;color:var(--muted);cursor:pointer;border:1px solid #eef2ff}
+.tag.active{background:linear-gradient(90deg,var(--student-3, #118ab2), var(--accent));color:#fff}
+
+/* course list */
+.course-list{display:flex;flex-direction:column;gap:12px}
+.course{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;border:1px solid #eef2ff;background:linear-gradient(180deg, #fff, #fbfcfe)}
+.course img{width:180px;height:110px;object-fit:cover;border-radius:8px}
+.course .meta h3{margin:0}
+
+/* articles pagination */
+.pagination{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:18px}
+.page-btn{padding:8px 12px;border-radius:8px;border:1px solid #e6eef8;background:var(--card);cursor:pointer}
+.page-btn.active{background:var(--primary);color:#fff;border-color:transparent}
+
+/* experts form */
+.form input,.form textarea{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6eef8}
+.form button{background:var(--accent);color:#042;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+
+/* small screens */
+@media (max-width:960px){
+  .app{grid-template-columns:1fr}
+  .sidebar{position:relative;height:auto;display:flex;overflow:auto}
+  .topbar{padding:12px}
+  .hero{padding:24px 18px}
+  .search-large{padding:0 12px}
+}
+
+/* subtle float animation for logos */
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.logo-badge{animation:floaty 5s ease-in-out infinite}

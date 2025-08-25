@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aptitude - SkillSprout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand" onclick="location.href='index.html'"><div class="logo-badge">SS</div><h1>SkillSprout</h1></div>
+      <nav><a class="nav-item" href="index.html">Home</a><a class="nav-item" href="tutorials_aptitude.html">Aptitude</a><a class="nav-item" href="articles.html">Articles</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="section-title"><h3>🧠 Aptitude</h3><div style="color:var(--muted)">Sharpen logical reasoning and problem solving</div></div>
+
+      <div class="course-list">
+        <div class="course" id="lr">
+          <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=60" alt="lr">
+          <div class="meta">
+            <h3>Logical Reasoning</h3>
+            <p>Puzzles, seating arrangement, syllogisms and practice sets.</p>
+            <a class="btn" href="#lrDet" onclick="toggleCourse('lr')">Open</a>
+            <div class="collapsible" id="lrDet">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="https://www.indiabix.com/logical-reasoning/questions-and-answers/" target="_blank">IndiaBix - Logical Reasoning</a></li>
+                <li>Video: <a href="https://www.youtube.com/watch?v=7zK4nqQfIeI" target="_blank">Logical Reasoning Tricks</a></li>
+              </ul>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/7zK4nqQfIeI" title="LR" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer><div class="container">&copy; 2025 SkillSprout</div></footer>
+
+  <script>
+    function toggleCourse(id){
+      const el = document.getElementById(id)
+      const open = el.classList.contains('open')
+      document.querySelectorAll('.course').forEach(c => { c.classList.remove('open') })
+      if(!open) el.classList.add('open')
+      setTimeout(()=>{ const col = el.querySelector('.collapsible'); if(col) col.scrollIntoView({behavior:'smooth', block:'center'}) },100)
+    }
+  </script>
+</body>
+</html>

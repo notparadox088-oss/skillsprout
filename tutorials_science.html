@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Science - SkillSprout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand" onclick="location.href='index.html'"><div class="logo-badge">SS</div><h1>SkillSprout</h1></div>
+      <nav><a class="nav-item" href="index.html">Home</a><a class="nav-item" href="tutorials_science.html">Science</a><a class="nav-item" href="articles.html">Articles</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="section-title"><h3>🔬 Science</h3><div style="color:var(--muted)">Interactive explainers for physics, chemistry & biology</div></div>
+
+      <div class="course-list">
+        <div class="course" id="physics">
+          <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=800&q=60" alt="physics">
+          <div class="meta">
+            <h3>Physics Fundamentals</h3>
+            <p>Mechanics, energy, waves and practical examples.</p>
+            <a class="btn" href="#physicsDet" onclick="toggleCourse('physics')">Open</a>
+            <div class="collapsible" id="physicsDet">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="https://www.khanacademy.org/science/physics" target="_blank">Khan Academy - Physics</a></li>
+                <li>Video: <a href="https://www.youtube.com/watch?v=ZTEW6z4j6VQ" target="_blank">Physics for beginners</a></li>
+              </ul>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZTEW6z4j6VQ" title="Physics" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="course" id="chem">
+          <img src="https://images.unsplash.com/photo-1581091870622-3b21e7f9f322?w=800&q=60" alt="chem">
+          <div class="meta">
+            <h3>Chemistry Essentials</h3>
+            <p>Periodic table, reactions, stoichiometry and lab basics.</p>
+            <a class="btn" href="#chemDet" onclick="toggleCourse('chem')">Open</a>
+            <div class="collapsible" id="chemDet">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="https://www.khanacademy.org/science/chemistry" target="_blank">Khan Academy - Chemistry</a></li>
+              </ul>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/Yv0y3e0X76Y" title="Chemistry" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <footer><div class="container">&copy; 2025 SkillSprout</div></footer>
+
+  <script>
+    function toggleCourse(id){
+      const el = document.getElementById(id)
+      const open = el.classList.contains('open')
+      document.querySelectorAll('.course').forEach(c => { c.classList.remove('open') })
+      if(!open) el.classList.add('open')
+      setTimeout(()=>{ const col = el.querySelector('.collapsible'); if(col) col.scrollIntoView({behavior:'smooth', block:'center'}) },100)
+    }
+  </script>
+</body>
+</html>

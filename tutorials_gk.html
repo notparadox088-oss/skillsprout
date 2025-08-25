@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>General Knowledge - SkillSprout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand" onclick="location.href='index.html'"><div class="logo-badge">SS</div><h1>SkillSprout</h1></div>
+      <nav><a class="nav-item" href="index.html">Home</a><a class="nav-item" href="tutorials_gk.html">GK</a><a class="nav-item" href="articles.html">Articles</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="section-title"><h3>📖 General Knowledge</h3><div style="color:var(--muted)">Daily affairs, quizzes and current events</div></div>
+
+      <div class="course-list">
+        <div class="course" id="dailyGK">
+          <img src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=800&q=60" alt="gk">
+          <div class="meta">
+            <h3>Daily Current Affairs</h3>
+            <p>Short summaries of today's important news for quick revision.</p>
+            <a class="btn" href="#gkDet" onclick="toggleCourse('dailyGK')">Open</a>
+            <div class="collapsible" id="gkDet">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="https://currentaffairs.adda247.com/" target="_blank">Adda247 - Current Affairs</a></li>
+                <li><a href="https://www.jagranjosh.com/general-knowledge" target="_blank">Jagran Josh</a></li>
+              </ul>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/9gTw2EDkaDQ" title="GK" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer><div class="container">&copy; 2025 SkillSprout</div></footer>
+
+  <script>
+    function toggleCourse(id){
+      const el = document.getElementById(id)
+      const open = el.classList.contains('open')
+      document.querySelectorAll('.course').forEach(c => { c.classList.remove('open') })
+      if(!open) el.classList.add('open')
+      setTimeout(()=>{ const col = el.querySelector('.collapsible'); if(col) col.scrollIntoView({behavior:'smooth', block:'center'}) },100)
+    }
+  </script>
+</body>
+</html>

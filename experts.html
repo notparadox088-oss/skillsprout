@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Experts - SkillSprout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand" onclick="location.href='index.html'"><div class="logo-badge">SS</div><h1>SkillSprout</h1></div>
+      <nav><a class="nav-item" href="index.html">Home</a><a class="nav-item" href="articles.html">Articles</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="section-title"><h3>👨‍🏫 For Experts</h3><div style="color:var(--muted)">Share tutorials, articles and resources with students</div></div>
+
+      <div class="card">
+        <form id="expertForm">
+          <label style="font-weight:700">Title</label><br>
+          <input type="text" id="title" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6eef8"><br><br>
+
+          <label style="font-weight:700">Short Description</label><br>
+          <textarea id="desc" rows="5" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6eef8"></textarea><br><br>
+
+          <label style="font-weight:700">Resource Link (article or repo)</label><br>
+          <input type="url" id="link" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6eef8"><br><br>
+
+          <label style="font-weight:700">YouTube Embed URL (optional)</label><br>
+          <input type="url" id="yt" placeholder="https://www.youtube.com/watch?v=..." style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6eef8"><br><br>
+
+          <button type="submit" class="btn" style="background:var(--accent);color:#042; padding:10px 14px;border-radius:8px;border:0;cursor:pointer">Submit (Preview)</button>
+        </form>
+
+        <div id="preview" style="margin-top:16px;display:none"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer><div class="container">&copy; 2025 SkillSprout</div></footer>
+
+  <script>
+    const form = document.getElementById('expertForm')
+    const preview = document.getElementById('preview')
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const title = document.getElementById('title').value.trim()
+      const desc = document.getElementById('desc').value.trim()
+      const link = document.getElementById('link').value.trim()
+      const yt = document.getElementById('yt').value.trim()
+      if(!title || !desc){ alert('Please add title and description'); return }
+      let html = `<h3>${title}</h3><p>${desc}</p>`
+      if(link) html += `<p><a href="${link}" target="_blank">Open resource</a></p>`
+      if(yt){
+        const vid = yt.includes('watch?v=') ? yt.split('watch?v=')[1] : (yt.split('/').pop())
+        html += `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${vid}" frameborder="0" allowfullscreen></iframe>`
+      }
+      preview.innerHTML = html; preview.style.display='block'
+      // NOTE: This is front-end preview only. To publish persistently you need a backend.
+    })
+  </script>
+</body>
+</html>
